@@ -47,3 +47,17 @@ To get FinRobot fully working, follow this order:
 
 ---
 
+## 📘 Setup Guidelines
+
+For a complete step-by-step setup guide, please refer to:
+
+👉 **[Guidelines_VSCode_API_Keys_Agent_Installation.md](./Guidelines_VSCode_API_Keys_Agent_Installation.md)**
+
+This document provides detailed instructions on:
+
+- Installing and setting up **Visual Studio Code (VSCode)**
+- Configuring required **API keys** (OpenAI, Finnhub, FMP, SEC)
+- Installing and running the **FinRobot agent locally**
+
+It is recommended to follow this guide before running the project to ensure all dependencies and configurations are properly set up.
+
