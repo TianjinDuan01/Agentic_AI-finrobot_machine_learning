@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-
+# Author: Chen Tong
 """
 FinRobot Three-Layer Investment Decision System — Streamlit Frontend
 Provides a visual interface for three Agents: Macro Analysis, Company Analysis, Final Decision
@@ -62,7 +62,7 @@ st.sidebar.markdown("---")
 st.sidebar.markdown("### ⚙️ Global Settings")
 
 # Global settings
-config_dir = Path(__file__).parent.parent
+config_dir = Path(__file__).parent
 oai_config = st.sidebar.text_input(
     "OAI Config Path",
     value=str(config_dir / "OAI_CONFIG_LIST.json")
@@ -73,7 +73,7 @@ keys_config = st.sidebar.text_input(
 )
 model = st.sidebar.selectbox(
     "LLM Model",
-    ["gpt-4-0125-preview", "gpt-4-turbo-preview"],
+    ["gpt-5", "gpt-5-mini"],
     index=0
 )
 outdir = st.sidebar.text_input(
@@ -237,7 +237,8 @@ elif page == "🌍 Macro Analysis":
                         with open(latest_report, 'r', encoding='utf-8') as f:
                             content = f.read()
                             lines = content.split('\n')[:50]
-                            st.markdown('\n'.join(lines))
+                            preview = '\n'.join(lines).replace("$", "\\$")
+                            st.markdown(preview)
 
                         # Download button
                         st.download_button(
@@ -331,7 +332,9 @@ elif page == "🏢 Company Analysis":
                         with open(latest_report, 'r', encoding='utf-8') as f:
                             content = f.read()
                             lines = content.split('\n')[:50]
-                            st.markdown('\n'.join(lines))
+                            preview = '\n'.join(lines).replace("$", "\\$")
+                            st.markdown(preview)
+
 
                         st.download_button(
                             label="📥 Download Full Report",
@@ -453,7 +456,8 @@ elif page == "🎯 Final Decision":
                         st.markdown("### 📄 Final Decision Report")
                         with open(latest_report, 'r', encoding='utf-8') as f:
                             content = f.read()
-                            st.markdown(content)
+                            safe_content = content.replace("$", "\\$")
+                            st.markdown(safe_content)
 
                         st.download_button(
                             label="📥 Download Full Report",
