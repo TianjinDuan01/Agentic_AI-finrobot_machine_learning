@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# Author: Chen Tong
+
 """
 FinRobot Three-Layer Investment Decision System — Streamlit Frontend
 Provides a visual interface for three Agents: Macro Analysis, Company Analysis, Final Decision
